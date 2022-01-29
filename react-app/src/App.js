@@ -1,51 +1,23 @@
 import React, {Component} from 'react';
+import TOC from "./components/TOC"
+import Content from './components/Content';
+import Subject from './components/Subject';
 import './App.css';
 
-class Subject extends Component{
-  
-
-  render(){
-    return(
-      <header>
-        <h1>{this.props.title}</h1>
-        {this.props.sub}
-      </header>
-    );
-  }
-}
-
-class TOC extends Component{
-  render(){
-    return(
-      <nav>
-            <ul>
-                <li><a href="1.html">HTML</a></li>          
-                <li><a href="2.html">CSS</a></li>            
-                <li><a href="3.html">JavaScript</a></li>              
-            </ul>
-        </nav>
-    );
-  }
-}
-
-
-class Content extends Component{
-  render(){
-    return(
-      <article>
-            <h2>HTML</h2>
-            HTML is HyperText Markup Language.
-      </article>
-    );
-  }
-}
 
 
 class App extends Component {
+  constructor(props){ // 제일먼저 실행되며 초기화 담당..init()?
+    super(props);
+    this.state={
+      subject:{title:'WEB', sub:'world wide web!'}
+    }
+  }
   render() {
     return (
       <div className="App">
-        <Subject title="WEB" sub="World Wide WEB!!"></Subject>
+        <Subject title={this.state.subject.title} 
+        sub={this.state.subject.sub} ></Subject>
         <Subject title="React" sub="For UI"></Subject>
         <TOC></TOC>
         <Content></Content>        
