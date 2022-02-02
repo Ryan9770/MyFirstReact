@@ -55,11 +55,14 @@ class App extends Component {
         // );
 
         // concat은 데이터를 뒤에다가 추가함
-        var contents = this.state.content.concat(
-          {id:this.max_content_id, title:_title, desc:_desc}
-        );
+        // var contents = this.state.content.concat(
+        //   {id:this.max_content_id, title:_title, desc:_desc}
+        // );
+        
+        var newContent = Array.from(this.state.content);
+        newContent.push( {id:this.max_content_id, title:_title, desc:_desc});
         this.setState({
-          content:contents
+          content:newContent
         });
       }.bind(this)}></CreateContent>
     }
